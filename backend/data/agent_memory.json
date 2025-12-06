@@ -1,0 +1,269 @@
+[
+  {
+    "timestamp": "2025-12-06T09:17:33.800067Z",
+    "agent": "maintenance_agent",
+    "event": "failure_check",
+    "chain": [
+      "maintenance_agent"
+    ],
+    "success": false,
+    "execution_time_ms": null,
+    "payload": {
+      "input": [
+        83,
+        67,
+        129
+      ],
+      "result": {
+        "status": "FAILURE_PREDICTED",
+        "alerts": [
+          "High Temperature \u2014 Cooling Required",
+          "Abnormal Vibration \u2014 Bearing Fault Possible",
+          "Pressure Spike \u2014 Leak Warning"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-12-06T09:19:42.506517Z",
+    "agent": "pricing_agent_chain",
+    "event": "pricing_decision",
+    "chain": [
+      "pricing_agent",
+      "forecasting_agent",
+      "esg_compliance_agent"
+    ],
+    "success": true,
+    "execution_time_ms": 3.01,
+    "payload": {
+      "agent_chain": [
+        "pricing_agent",
+        "forecasting_agent",
+        "esg_compliance_agent"
+      ],
+      "suggested_rent": 30097.32,
+      "forecast_next_6_months": {
+        "base_rent": 28000,
+        "new_rent": 30097.32,
+        "monthly_forecast": [
+          29048.66,
+          30136.59,
+          31265.27,
+          32436.23,
+          33651.03,
+          34911.34
+        ]
+      },
+      "esg_check_result": {
+        "status": "FAIL",
+        "details": "Exceeded by 250 kWh",
+        "allowed_limit_kwh": 1200,
+        "projected_penalty_$": 125.0
+      }
+    }
+  },
+  {
+    "timestamp": "2025-12-06T09:31:11.823142Z",
+    "agent": "lease_extraction_agent",
+    "event": "lease_parsing",
+    "chain": [
+      "lease_extraction_agent"
+    ],
+    "success": true,
+    "execution_time_ms": 1.32,
+    "payload": {
+      "monthly_rent": "32000",
+      "lease_start": "01/03/2024",
+      "lease_end": "01/03/2025",
+      "rent_escalation": "7%",
+      "penalty_fee": "750"
+    }
+  },
+  {
+    "timestamp": "2025-12-06T09:37:52.087310Z",
+    "agent": "lease_extraction_agent",
+    "event": "lease_parsing",
+    "chain": [
+      "lease_extraction_agent"
+    ],
+    "success": true,
+    "execution_time_ms": 2.0,
+    "payload": {
+      "monthly_rent": "32000",
+      "lease_start": "01/03/2024",
+      "lease_end": "01/03/2025",
+      "rent_escalation": "7%",
+      "penalty_fee": "750"
+    }
+  },
+  {
+    "timestamp": "2025-12-06T09:40:48.058901Z",
+    "agent": "pricing_agent_chain",
+    "event": "pricing_decision",
+    "chain": [
+      "pricing_agent",
+      "forecasting_agent",
+      "esg_compliance_agent"
+    ],
+    "success": true,
+    "execution_time_ms": 2.0,
+    "payload": {
+      "agent_chain": [
+        "pricing_agent",
+        "forecasting_agent",
+        "esg_compliance_agent"
+      ],
+      "suggested_rent": 30097.32,
+      "forecast_next_6_months": {
+        "base_rent": 28000,
+        "new_rent": 30097.32,
+        "monthly_forecast": [
+          29048.66,
+          30136.59,
+          31265.27,
+          32436.23,
+          33651.03,
+          34911.34
+        ]
+      },
+      "esg_check_result": {
+        "status": "FAIL",
+        "details": "Exceeded by 250 kWh",
+        "allowed_limit_kwh": 1200,
+        "projected_penalty_$": 125.0
+      }
+    }
+  },
+  {
+    "timestamp": "2025-12-06T09:41:43.126970Z",
+    "agent": "maintenance_agent",
+    "event": "failure_check",
+    "chain": [
+      "maintenance_agent"
+    ],
+    "success": false,
+    "execution_time_ms": null,
+    "payload": {
+      "input": [
+        83,
+        67,
+        129
+      ],
+      "result": {
+        "status": "FAILURE_PREDICTED",
+        "alerts": [
+          "High Temperature \u2014 Cooling Required",
+          "Abnormal Vibration \u2014 Bearing Fault Possible",
+          "Pressure Spike \u2014 Leak Warning"
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2025-12-06T09:42:42.605024Z",
+    "agent": "maintenance_agent",
+    "event": "iot_simulation",
+    "chain": [
+      "maintenance_agent"
+    ],
+    "success": true,
+    "execution_time_ms": null,
+    "payload": {
+      "generated_samples": [
+        [
+          76.9,
+          61.8,
+          110.6
+        ],
+        [
+          87.3,
+          54.6,
+          128.3
+        ],
+        [
+          74.5,
+          73.2,
+          106.9
+        ],
+        [
+          78.2,
+          68.0,
+          108.9
+        ]
+      ],
+      "predictions": [
+        {
+          "status": "FAILURE_PREDICTED",
+          "alerts": [
+            "Abnormal Vibration \u2014 Bearing Fault Possible"
+          ]
+        },
+        {
+          "status": "FAILURE_PREDICTED",
+          "alerts": [
+            "High Temperature \u2014 Cooling Required",
+            "Pressure Spike \u2014 Leak Warning"
+          ]
+        },
+        {
+          "status": "FAILURE_PREDICTED",
+          "alerts": [
+            "Abnormal Vibration \u2014 Bearing Fault Possible"
+          ]
+        },
+        {
+          "status": "FAILURE_PREDICTED",
+          "alerts": [
+            "Abnormal Vibration \u2014 Bearing Fault Possible"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-06T09:57:12.493985Z",
+    "agent": "pricing_agent_chain",
+    "event": "pricing_decision",
+    "chain": [
+      "pricing_agent",
+      "forecasting_agent",
+      "esg_compliance_agent"
+    ],
+    "success": true,
+    "execution_time_ms": 2.24,
+    "payload": {
+      "agent_chain": [
+        "pricing_agent",
+        "forecasting_agent",
+        "esg_compliance_agent"
+      ],
+      "current_rent": 28000,
+      "base_suggested_rent": 30097.32,
+      "esg_adjusted_rent": 29194.4,
+      "final_recommended_rent": 28318.57,
+      "confidence": 0.52,
+      "risk_level": "medium",
+      "esg_status": "FAIL",
+      "esg_adjustment_applied": true,
+      "learning_note": "High ESG fail ratio (1.00), applying -3% safety adjustment.",
+      "forecast_next_6_months": {
+        "base_rent": 28000,
+        "new_rent": 30097.32,
+        "monthly_forecast": [
+          29048.66,
+          30136.59,
+          31265.27,
+          32436.23,
+          33651.03,
+          34911.34
+        ]
+      },
+      "esg_check_result": {
+        "status": "FAIL",
+        "details": "Exceeded by 250 kWh",
+        "allowed_limit_kwh": 1200,
+        "projected_penalty_$": 125.0
+      }
+    }
+  }
+]
