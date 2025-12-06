@@ -1,30 +1,35 @@
-# backend/agents/scenario_agent.py
 """
-This agent handles scenario simulation:
-e.g. what happens to cash flow / NOI if rent, occupancy, or expenses change.
+Scenario Simulation Agent
+---
+Predicts the impact of changes in:
+- rent
+- occupancy
+- expenses
 
-It calls run_scenario from scenario_service.py and returns formatted JSON.
+Outputs: updated NOI, profit curve, risk impact, sensitivity factors.
+
+Part of Decentralized Multi-Agent Pipeline:
+pricing → churn → forecast → scenario simulation → portfolio optimization
 """
 
 from fastapi import APIRouter, Query
 from services.scenario_service import run_scenario
+from services.graph_store import save_event
 
 router = APIRouter()
 
 
+# ------------------------------------------------------------
+# GET Endpoint (Quick Test)
+# ------------------------------------------------------------
 @router.get("/scenario")
 def scenario_get(
     property_id: str = Query("property_A"),
-    rent_change_pct: float = Query(0.0, description="Rent change in % (e.g., 5 for +5%)"),
-    occupancy_change_pct: float = Query(0.0, description="Occupancy change in %"),
-    expense_change_pct: float = Query(0.0, description="Expense change in %"),
-    months_ahead: int = Query(6, description="Months ahead for scenario")
+    rent_change_pct: float = Query(0.0),
+    occupancy_change_pct: float = Query(0.0),
+    expense_change_pct: float = Query(0.0),
+    months_ahead: int = Query(6),
 ):
-    """
-    GET scenario simulation results.
-    Example:
-    /scenario?property_id=property_A&rent_change_pct=5&months_ahead=6
-    """
     try:
         result = run_scenario(
             property_id=property_id,
@@ -34,11 +39,16 @@ def scenario_get(
             months_ahead=months_ahead,
         )
 
-        return {
+        payload = {
             "status": "success",
             "agent": "scenario_agent",
+            "agent_chain": [
+                "forecasting_agent",
+                "pricing_agent",
+                "scenario_agent"
+            ],
             "property_id": property_id,
-            "inputs": {
+            "input_scenario": {
                 "rent_change_pct": rent_change_pct,
                 "occupancy_change_pct": occupancy_change_pct,
                 "expense_change_pct": expense_change_pct,
@@ -46,28 +56,19 @@ def scenario_get(
             },
             "scenario_result": result,
         }
+
+        save_event("scenario_agent", "scenario_simulation", payload)
+        return payload
+
     except Exception as e:
-        return {
-            "status": "error",
-            "agent": "scenario_agent",
-            "message": str(e),
-        }
+        return {"status": "error", "agent": "scenario_agent", "message": str(e)}
 
 
+# ------------------------------------------------------------
+# POST Endpoint (Real Payload)
+# ------------------------------------------------------------
 @router.post("/scenario")
 def scenario_post(payload: dict):
-    """
-    POST scenario simulation.
-
-    Expected JSON payload:
-    {
-        "property_id": "property_A",
-        "rent_change_pct": 5.0,
-        "occupancy_change_pct": -3.0,
-        "expense_change_pct": 2.0,
-        "months_ahead": 6
-    }
-    """
     try:
         property_id = payload.get("property_id", "property_A")
         rent_change_pct = float(payload.get("rent_change_pct", 0.0))
@@ -83,11 +84,16 @@ def scenario_post(payload: dict):
             months_ahead=months_ahead,
         )
 
-        return {
+        response = {
             "status": "success",
             "agent": "scenario_agent",
             "property_id": property_id,
-            "inputs": {
+            "agent_chain": [
+                "forecasting_agent",
+                "portfolio_agent",
+                "scenario_agent"
+            ],
+            "input_scenario": {
                 "rent_change_pct": rent_change_pct,
                 "occupancy_change_pct": occupancy_change_pct,
                 "expense_change_pct": expense_change_pct,
@@ -95,24 +101,23 @@ def scenario_post(payload: dict):
             },
             "scenario_result": result,
         }
+
+        save_event("scenario_agent", "scenario_simulation", response)
+        return response
+
     except Exception as e:
-        return {
-            "status": "error",
-            "agent": "scenario_agent",
-            "message": str(e),
-        }
+        return {"status": "error", "agent": "scenario_agent", "message": str(e)}
 
 
 # ------------------------------------------------------------
-# Standalone test (python scenario_agent.py)
+# Local Debug
 # ------------------------------------------------------------
 if __name__ == "__main__":
-    # Simple in-file test (GET-style call)
     test = scenario_get(
         property_id="property_A",
-        rent_change_pct=5.0,
-        occupancy_change_pct=-2.0,
-        expense_change_pct=1.5,
+        rent_change_pct=5,
+        occupancy_change_pct=-2,
+        expense_change_pct=1,
         months_ahead=6,
     )
     print(test)

@@ -11,8 +11,10 @@ from agents.alerts_agent import router as alerts_router
 from agents.forecasting_agent import router as forecast_router
 from agents.occupancy_agent import router as occupancy_router
 from agents.tenant_churn_agent import router as churn_router
-
+from agents.portfolio_agent import router as portfolio_router
+from agents.scenario_agent import router as scenario_router
 from agents.memory_agent import router as memory_router
+
 sys.path.append(os.path.dirname(__file__))
 app = FastAPI(title="SingularityNET Real Estate Intelligence Agents")
 
@@ -28,6 +30,8 @@ app.include_router(memory_router)
 app.include_router(forecast_router)
 app.include_router(occupancy_router)
 app.include_router(churn_router)
+app.include_router(portfolio_router)
+app.include_router(scenario_router)
 
 
 @app.get("/")
