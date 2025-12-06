@@ -1,0 +1,18 @@
+{
+    "city": "Bengaluru",
+    "currency": "INR",
+    "market_demand_index": 0.73,
+    "avg_market_rent_per_sqft": 48,
+    "recent_trend_percent": 6.5,
+    "festival_season_multiplier": 1.08,
+    "interest_rate_current": 10.5,
+    "global_economic_sentiment": "neutral",
+    "major_event_nearby": false,
+    "next_12_month_projection_percent": 9.2,
+    "elasticity_detection_enabled": true,
+    "dynamic_pricing_weighting": {
+        "demand_score": 0.4,
+        "location_score": 0.3,
+        "market_trend_score": 0.3
+    }
+}

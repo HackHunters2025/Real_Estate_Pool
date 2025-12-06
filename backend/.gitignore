@@ -1,0 +1,68 @@
+# Python general
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+*.sqlite3
+
+# FastAPI / Uvicorn
+*.log
+*.pid
+
+# Virtual environment
+*/.venv
+.venv/
+env/
+venv/
+ENV/
+
+# Byte-compiled / cache
+*.py[cod]
+*$py.class
+
+# Uploaded files (Lease PDF uploads, tenant docs)
+backend/uploads/
+backend/data/uploads/
+
+# Agentic Memory (Can be reset every run)
+backend/data/agent_memory.json
+
+# Model artifacts (Dev2 will add ML models later)
+backend/models/
+*.joblib
+*.h5
+*.pickle
+*.pkl
+*.pt
+*.onnx
+
+# Temporary build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Test cache
+.pytest_cache/
+
+# Node if React used
+node_modules/
+npm-debug.log
+yarn-error.log
