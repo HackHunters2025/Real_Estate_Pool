@@ -1,58 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { fetchChurnRisk } from "../../api/churnAPI";
-
-// export default function ChurnRiskCard({ propertyId = "A" }) {
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     setLoading(true);
-//     fetchChurnRisk(propertyId).then((res) => {
-//       setData(res);
-//       setLoading(false);
-//     });
-//   }, [propertyId]);
-
-//   if (loading) {
-//     return (
-//       <div className="bg-white rounded-2xl ring-1 ring-slate-200 shadow-sm p-5 flex items-center justify-center text-sm text-slate-500">
-//         Predicting tenant churn…
-//       </div>
-//     );
-//   }
-
-//   const colorMap = {
-//     HIGH: "bg-red-600",
-//     MEDIUM: "bg-yellow-500",
-//     LOW: "bg-green-600",
-//   };
-
-//   return (
-//     <div className="bg-white rounded-2xl ring-1 ring-slate-200 shadow-sm p-5">
-//       <h2 className="text-sm font-semibold text-slate-900">
-//         Tenant Churn Risk
-//       </h2>
-//       <p className="text-xs text-slate-500 mb-4">
-//         Behavioral risk analysis agent
-//       </p>
-
-//       <div className="flex items-center gap-4">
-//         <span
-//           className={`px-4 py-1 rounded-full text-xs font-semibold text-white ${colorMap[data.level]}`}
-//         >
-//           {data.level}
-//         </span>
-//         <span className="text-lg font-semibold text-slate-900">
-//           {data.score}/100
-//         </span>
-//       </div>
-
-//       <p className="mt-3 text-xs text-slate-500">{data.message}</p>
-//     </div>
-//   );
-// }
-
-
 import { useEffect, useState } from "react";
 import { Users, Loader2, ArrowUpRight } from "lucide-react";
 import { fetchChurnRisk } from "../../api/churnAPI";
@@ -61,13 +6,28 @@ export default function ChurnRiskCard({ propertyId = "A" }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetchChurnRisk(propertyId).then((res) => {
+  //     setData(res);
+  //     setLoading(false);
+  //   });
+  // }, [propertyId]);
+
   useEffect(() => {
-    setLoading(true);
-    fetchChurnRisk(propertyId).then((res) => {
+  setLoading(true);
+
+  fetchChurnRisk(propertyId)
+    .then((res) => {
+      console.log("✅ CHURN DATA RECEIVED:", res);
       setData(res);
-      setLoading(false);
-    });
-  }, [propertyId]);
+    })
+    .catch((err) => {
+      console.error("❌ Churn UI error:", err);
+    })
+    .finally(() => setLoading(false));
+}, [propertyId]);
+
 
   if (loading) {
     return (

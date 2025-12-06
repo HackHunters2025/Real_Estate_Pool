@@ -1,67 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { calculatePricingScenario } from "../../api/pricingAPI";
-
-// export default function PricingSlider({ propertyId = "A" }) {
-//   const [adjustment, setAdjustment] = useState(0);
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(false);
-
-//   useEffect(() => {
-//     setLoading(true);
-//     calculatePricingScenario(propertyId, adjustment)
-//       .then((res) => setData(res))
-//       .finally(() => setLoading(false));
-//   }, [propertyId, adjustment]);
-
-//   return (
-//     <div className="bg-white rounded-2xl ring-1 ring-slate-200 shadow-sm p-6 space-y-5">
-//       <div>
-//         <h2 className="text-sm font-semibold text-slate-900">
-//           Dynamic Pricing Simulator
-//         </h2>
-//         <p className="text-xs text-slate-500">
-//           Simulate rent impact using AI demand modeling
-//         </p>
-//       </div>
-
-//       <input
-//         type="range"
-//         min="-10"
-//         max="20"
-//         value={adjustment}
-//         onChange={(e) => setAdjustment(Number(e.target.value))}
-//         className="w-full accent-indigo-600"
-//       />
-
-//       {loading || !data ? (
-//         <p className="text-xs text-slate-500">
-//           Pricing agent evaluating market signals…
-//         </p>
-//       ) : (
-//         <>
-//           <div className="grid grid-cols-2 gap-4">
-//             <div className="rounded-lg bg-slate-50 p-4">
-//               <p className="text-xs text-slate-500">Monthly Rent</p>
-//               <p className="text-xl font-semibold text-slate-900">
-//                 ₹{data.adjustedRent}
-//               </p>
-//             </div>
-
-//             <div className="rounded-lg bg-slate-50 p-4">
-//               <p className="text-xs text-slate-500">Annual Revenue</p>
-//               <p className="text-xl font-semibold text-slate-900">
-//                 ₹{data.annualRevenue}
-//               </p>
-//             </div>
-//           </div>
-
-//           <p className="text-xs text-slate-500">{data.explanation}</p>
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
 import { useEffect, useState } from "react";
 import { Calculator, ArrowRight, DollarSign } from "lucide-react";
 import { calculatePricingScenario } from "../../api/pricingAPI";
@@ -71,12 +7,26 @@ export default function PricingSlider({ propertyId = "A" }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    calculatePricingScenario(propertyId, adjustment)
-      .then((res) => setData(res))
-      .finally(() => setLoading(false));
-  }, [propertyId, adjustment]);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   calculatePricingScenario(propertyId, adjustment)
+  //     .then((res) => setData(res))
+  //     .finally(() => setLoading(false));
+  // }, [propertyId, adjustment]);
+
+   useEffect(() => {
+  setLoading(true);
+
+  calculatePricingScenario(propertyId, adjustment)
+    .then((res) => {
+      console.log("✅ PRICING DATA RECEIVED:", res);
+      setData(res);
+    })
+    .catch((err) => {
+      console.error("❌ Pricing UI error:", err);
+    })
+    .finally(() => setLoading(false));
+}, [propertyId, adjustment]);
 
   return (
     <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8">

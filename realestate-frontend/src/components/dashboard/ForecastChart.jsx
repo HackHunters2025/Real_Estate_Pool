@@ -1,73 +1,3 @@
-// import { useEffect, useState } from "react";
-// import {
-//   LineChart,
-//   Line,
-//   XAxis,
-//   YAxis,
-//   Tooltip,
-//   ResponsiveContainer,
-// } from "recharts";
-
-// import { fetchCashFlowForecast } from "../../api/forecastAPI";
-
-// export default function ForecastChart({ propertyId = "A" }) {
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     setLoading(true);
-//     setError(null);
-
-//     fetchCashFlowForecast(propertyId)
-//       .then((res) => setData(res))
-//       .catch(() => setError("Failed to load forecast"))
-//       .finally(() => setLoading(false));
-//   }, [propertyId]);
-
-//   if (loading) {
-//     return (
-//       <div className="bg-white rounded-2xl ring-1 ring-slate-200 shadow-sm p-5 h-72 flex items-center justify-center text-sm text-slate-500">
-//         Forecasting agent processing financial signals…
-//       </div>
-//     );
-//   }
-
-//   if (error) {
-//     return (
-//       <div className="bg-white rounded-2xl ring-1 ring-red-200 shadow-sm p-5 h-72 flex items-center justify-center text-sm text-red-600">
-//         {error}
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="bg-white rounded-2xl ring-1 ring-slate-200 shadow-sm p-5 h-72">
-//       <h2 className="text-sm font-semibold text-slate-900">
-//         Cash Flow Forecast
-//       </h2>
-//       <p className="text-xs text-slate-500 mb-3">
-//         Forecasting agent • next 6 months
-//       </p>
-
-//       <ResponsiveContainer width="100%" height="100%">
-//         <LineChart data={data}>
-//           <XAxis dataKey="month" tick={{ fontSize: 12 }} />
-//           <YAxis tick={{ fontSize: 12 }} />
-//           <Tooltip />
-//           <Line
-//             type="monotone"
-//             dataKey="cash"
-//             stroke="#4f46e5"
-//             strokeWidth={2.5}
-//             dot={false}
-//           />
-//         </LineChart>
-//       </ResponsiveContainer>
-//     </div>
-//   );
-// }
-
 import { useEffect, useState } from "react";
 import {
   LineChart,
@@ -89,15 +19,32 @@ export default function ForecastChart({ propertyId = "A" }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setLoading(true);
-    setError(null);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setError(null);
 
-    fetchCashFlowForecast(propertyId)
-      .then((res) => setData(res))
-      .catch(() => setError("Failed to load forecast"))
-      .finally(() => setLoading(false));
-  }, [propertyId]);
+  //   fetchCashFlowForecast(propertyId)
+  //     .then((res) => setData(res))
+  //     .catch(() => setError("Failed to load forecast"))
+  //     .finally(() => setLoading(false));
+  // }, [propertyId]);
+
+useEffect(() => {
+  setLoading(true);
+  setError(null);
+
+  fetchCashFlowForecast(propertyId)
+    .then((res) => {
+      console.log("✅ Forecast data received in UI:", res);
+      setData(res);
+    })
+    .catch((err) => {
+      console.error("❌ Forecast UI error:", err);
+      setError("Failed to load forecast");
+    })
+    .finally(() => setLoading(false));
+}, [propertyId]);
+
 
   if (loading) {
     return (

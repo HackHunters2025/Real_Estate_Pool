@@ -1,55 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { fetchESGStatus } from "../../api/esgAPI";
-
-// export default function ESGStatusCard({ propertyId = "A" }) {
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     setLoading(true);
-//     fetchESGStatus(propertyId).then((res) => {
-//       setData(res);
-//       setLoading(false);
-//     });
-//   }, [propertyId]);
-
-//   if (loading) {
-//     return (
-//       <div className="bg-white rounded-2xl ring-1 ring-slate-200 shadow-sm p-5 flex items-center justify-center text-sm text-slate-500">
-//         Checking ESG compliance…
-//       </div>
-//     );
-//   }
-
-//   const isPass = data.status === "PASS";
-
-//   return (
-//     <div className="bg-white rounded-2xl ring-1 ring-slate-200 shadow-sm p-5">
-//       <h2 className="text-sm font-semibold text-slate-900">
-//         ESG Compliance
-//       </h2>
-//       <p className="text-xs text-slate-500 mb-4">
-//         Sustainability monitoring agent
-//       </p>
-
-//       <div className="flex items-center gap-3">
-//         <span
-//           className={`px-3 py-1 rounded-full text-xs font-semibold text-white ${
-//             isPass ? "bg-green-600" : "bg-red-600"
-//           }`}
-//         >
-//           {data.status}
-//         </span>
-//         <span className="text-sm text-slate-700">
-//           Energy usage at {data.energyUsage}% of cap
-//         </span>
-//       </div>
-
-//       <p className="mt-3 text-xs text-slate-500">{data.message}</p>
-//     </div>
-//   );
-// }
-
 import { useEffect, useState } from "react";
 import { Leaf, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
 import { fetchESGStatus } from "../../api/esgAPI";
@@ -58,13 +6,28 @@ export default function ESGStatusCard({ propertyId = "A" }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetchESGStatus(propertyId).then((res) => {
+  //     setData(res);
+  //     setLoading(false);
+  //   });
+  // }, [propertyId]);
+
   useEffect(() => {
-    setLoading(true);
-    fetchESGStatus(propertyId).then((res) => {
+  setLoading(true);
+
+  fetchESGStatus(propertyId)
+    .then((res) => {
+      console.log("✅ ESG DATA RECEIVED:", res);
       setData(res);
-      setLoading(false);
-    });
-  }, [propertyId]);
+    })
+    .catch((err) => {
+      console.error("❌ ESG UI error:", err);
+    })
+    .finally(() => setLoading(false));
+}, [propertyId]);
+
 
   if (loading) {
     return (
