@@ -1,0 +1,12 @@
+LEASE AGREEMENT
+
+Property: Apartment 406, Tech Residency
+Tenant: Rahul Verma
+Start Date: 01/05/2023
+End Date: 01/05/2025
+Rent Amount: 28000
+Escalation: 5%
+Renewal Clause: Yes
+
+Utilities included except electricity.
+Tenant must report maintenance issues within 48 hours.

@@ -1,0 +1,22 @@
+{
+    "energy_kwh_limit": 1200,
+    "water_usage_liter_limit": 900,
+    "carbon_emission_ton_limit": 2.5,
+    "esg_penalty_rate": 50,
+    "fine_currency": "USD",
+    "required_compliance_percentage": 85,
+    "next_regulation_year": 2027,
+    "local_law_97_target_reduction": 40,
+    "green_certification_bonus": 300,
+    "smart_meter_required": true,
+    "alert_threshold_percent": 15,
+    "carbon_credit_price_per_ton": 138,
+    "timezone_for_reporting": "UTC",
+    "data_refresh_schedule_hours": 24,
+    "audit_history_required_years": 7,
+    "mandated_indoor_air_quality_index": 45,
+    "hvac_max_temperature_limit": 79,
+    "hvac_vibration_limit": 60,
+    "pressure_limit": 120,
+    "tenant_comfort_feedback_required": true
+}
