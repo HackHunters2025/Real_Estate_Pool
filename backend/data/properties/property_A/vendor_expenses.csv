@@ -1,0 +1,253 @@
+month,vendor,amount
+2022-01,Electricity,178582
+2022-01,Water Supply,31346
+2022-01,Security,50218
+2022-01,Cleaning,42763
+2022-01,Elevator Maintenance,24785
+2022-01,HVAC,27382
+2022-01,Fire Safety,15857
+2022-02,Electricity,175096
+2022-02,Water Supply,36257
+2022-02,Security,51782
+2022-02,Cleaning,39143
+2022-02,Elevator Maintenance,19169
+2022-02,HVAC,25664
+2022-02,Fire Safety,10942
+2022-03,Electricity,181368
+2022-03,Water Supply,30111
+2022-03,Security,48481
+2022-03,Cleaning,36363
+2022-03,Elevator Maintenance,17894
+2022-03,HVAC,23325
+2022-03,Fire Safety,11092
+2022-04,Electricity,182985
+2022-04,Water Supply,31847
+2022-04,Security,51484
+2022-04,Cleaning,35039
+2022-04,Elevator Maintenance,16346
+2022-04,HVAC,26740
+2022-04,Fire Safety,16648
+2022-05,Electricity,181077
+2022-05,Water Supply,37344
+2022-05,Security,46159
+2022-05,Cleaning,39195
+2022-05,Elevator Maintenance,17428
+2022-05,HVAC,28028
+2022-05,Fire Safety,13252
+2022-06,Electricity,176382
+2022-06,Water Supply,34309
+2022-06,Security,47338
+2022-06,Cleaning,41113
+2022-06,Elevator Maintenance,15588
+2022-06,HVAC,29896
+2022-06,Fire Safety,13971
+2022-07,Electricity,175837
+2022-07,Water Supply,32624
+2022-07,Security,49939
+2022-07,Cleaning,36442
+2022-07,Elevator Maintenance,24018
+2022-07,HVAC,29610
+2022-07,Fire Safety,16628
+2022-08,Electricity,182147
+2022-08,Water Supply,34507
+2022-08,Security,54981
+2022-08,Cleaning,43172
+2022-08,Elevator Maintenance,22750
+2022-08,HVAC,21389
+2022-08,Fire Safety,18563
+2022-09,Electricity,183582
+2022-09,Water Supply,37950
+2022-09,Security,53447
+2022-09,Cleaning,38316
+2022-09,Elevator Maintenance,19455
+2022-09,HVAC,20950
+2022-09,Fire Safety,16087
+2022-10,Electricity,176153
+2022-10,Water Supply,38747
+2022-10,Security,48258
+2022-10,Cleaning,44573
+2022-10,Elevator Maintenance,23887
+2022-10,HVAC,26578
+2022-10,Fire Safety,17992
+2022-11,Electricity,176329
+2022-11,Water Supply,34626
+2022-11,Security,54729
+2022-11,Cleaning,40036
+2022-11,Elevator Maintenance,22913
+2022-11,HVAC,27224
+2022-11,Fire Safety,18534
+2022-12,Electricity,177709
+2022-12,Water Supply,32521
+2022-12,Security,54705
+2022-12,Cleaning,40474
+2022-12,Elevator Maintenance,21027
+2022-12,HVAC,29438
+2022-12,Fire Safety,10262
+2023-01,Electricity,176111
+2023-01,Water Supply,39230
+2023-01,Security,46222
+2023-01,Cleaning,41284
+2023-01,Elevator Maintenance,15438
+2023-01,HVAC,22587
+2023-01,Fire Safety,17569
+2023-02,Electricity,176902
+2023-02,Water Supply,33914
+2023-02,Security,54059
+2023-02,Cleaning,38700
+2023-02,Elevator Maintenance,19195
+2023-02,HVAC,22241
+2023-02,Fire Safety,12863
+2023-03,Electricity,177541
+2023-03,Water Supply,31669
+2023-03,Security,54325
+2023-03,Cleaning,40206
+2023-03,Elevator Maintenance,19142
+2023-03,HVAC,28463
+2023-03,Fire Safety,13387
+2023-04,Electricity,178505
+2023-04,Water Supply,39635
+2023-04,Security,48997
+2023-04,Cleaning,35979
+2023-04,Elevator Maintenance,24028
+2023-04,HVAC,21510
+2023-04,Fire Safety,10321
+2023-05,Electricity,178956
+2023-05,Water Supply,34862
+2023-05,Security,46996
+2023-05,Cleaning,43515
+2023-05,Elevator Maintenance,24011
+2023-05,HVAC,29190
+2023-05,Fire Safety,14184
+2023-06,Electricity,180484
+2023-06,Water Supply,31343
+2023-06,Security,49004
+2023-06,Cleaning,42799
+2023-06,Elevator Maintenance,21640
+2023-06,HVAC,22528
+2023-06,Fire Safety,11401
+2023-07,Electricity,175424
+2023-07,Water Supply,36202
+2023-07,Security,52661
+2023-07,Cleaning,39173
+2023-07,Elevator Maintenance,19486
+2023-07,HVAC,27233
+2023-07,Fire Safety,15342
+2023-08,Electricity,180318
+2023-08,Water Supply,34648
+2023-08,Security,46994
+2023-08,Cleaning,42244
+2023-08,Elevator Maintenance,23652
+2023-08,HVAC,21514
+2023-08,Fire Safety,19713
+2023-09,Electricity,179231
+2023-09,Water Supply,31452
+2023-09,Security,45763
+2023-09,Cleaning,40879
+2023-09,Elevator Maintenance,16230
+2023-09,HVAC,23512
+2023-09,Fire Safety,14671
+2023-10,Electricity,183673
+2023-10,Water Supply,32563
+2023-10,Security,53209
+2023-10,Cleaning,38287
+2023-10,Elevator Maintenance,21802
+2023-10,HVAC,28749
+2023-10,Fire Safety,18121
+2023-11,Electricity,184123
+2023-11,Water Supply,35650
+2023-11,Security,53878
+2023-11,Cleaning,39169
+2023-11,Elevator Maintenance,17622
+2023-11,HVAC,21731
+2023-11,Fire Safety,11675
+2023-12,Electricity,180530
+2023-12,Water Supply,32947
+2023-12,Security,51701
+2023-12,Cleaning,39538
+2023-12,Elevator Maintenance,23599
+2023-12,HVAC,28473
+2023-12,Fire Safety,12843
+2024-01,Electricity,175441
+2024-01,Water Supply,34718
+2024-01,Security,49355
+2024-01,Cleaning,40731
+2024-01,Elevator Maintenance,20461
+2024-01,HVAC,23574
+2024-01,Fire Safety,19528
+2024-02,Electricity,184047
+2024-02,Water Supply,30612
+2024-02,Security,52044
+2024-02,Cleaning,39421
+2024-02,Elevator Maintenance,22280
+2024-02,HVAC,25189
+2024-02,Fire Safety,15660
+2024-03,Electricity,184956
+2024-03,Water Supply,31795
+2024-03,Security,45731
+2024-03,Cleaning,38365
+2024-03,Elevator Maintenance,19951
+2024-03,HVAC,25306
+2024-03,Fire Safety,10194
+2024-04,Electricity,180421
+2024-04,Water Supply,33082
+2024-04,Security,45757
+2024-04,Cleaning,40088
+2024-04,Elevator Maintenance,16305
+2024-04,HVAC,24451
+2024-04,Fire Safety,15747
+2024-05,Electricity,178393
+2024-05,Water Supply,30454
+2024-05,Security,46891
+2024-05,Cleaning,38026
+2024-05,Elevator Maintenance,21364
+2024-05,HVAC,26566
+2024-05,Fire Safety,19705
+2024-06,Electricity,181359
+2024-06,Water Supply,38936
+2024-06,Security,51962
+2024-06,Cleaning,41052
+2024-06,Elevator Maintenance,15604
+2024-06,HVAC,26115
+2024-06,Fire Safety,16483
+2024-07,Electricity,181481
+2024-07,Water Supply,31132
+2024-07,Security,47621
+2024-07,Cleaning,39343
+2024-07,Elevator Maintenance,23142
+2024-07,HVAC,22878
+2024-07,Fire Safety,10924
+2024-08,Electricity,181773
+2024-08,Water Supply,36382
+2024-08,Security,54342
+2024-08,Cleaning,37191
+2024-08,Elevator Maintenance,23113
+2024-08,HVAC,22512
+2024-08,Fire Safety,10639
+2024-09,Electricity,178054
+2024-09,Water Supply,31771
+2024-09,Security,51895
+2024-09,Cleaning,40338
+2024-09,Elevator Maintenance,15544
+2024-09,HVAC,21639
+2024-09,Fire Safety,17587
+2024-10,Electricity,176594
+2024-10,Water Supply,38102
+2024-10,Security,50009
+2024-10,Cleaning,42341
+2024-10,Elevator Maintenance,17838
+2024-10,HVAC,28522
+2024-10,Fire Safety,12543
+2024-11,Electricity,178875
+2024-11,Water Supply,30881
+2024-11,Security,52207
+2024-11,Cleaning,38573
+2024-11,Elevator Maintenance,20971
+2024-11,HVAC,24982
+2024-11,Fire Safety,13101
+2024-12,Electricity,182187
+2024-12,Water Supply,38485
+2024-12,Security,53325
+2024-12,Cleaning,42249
+2024-12,Elevator Maintenance,23801
+2024-12,HVAC,26621
+2024-12,Fire Safety,14550
