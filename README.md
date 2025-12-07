@@ -5,7 +5,7 @@
 > a single, agent-powered dashboard for asset managers, developers, and CRE operators.
 
 This project is built as a **hackathon prototype with real-world B2B applicability**:  
-it is structured like a production system (modular backend agents + React dashboard)  
+It is structured like a production system (modular backend agents + React dashboard)  
 but lightweight enough to run locally end-to-end.
 
 ---
