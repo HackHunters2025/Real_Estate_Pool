@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import { TrendingUp, Loader2, AlertCircle } from "lucide-react";
 
-import { fetchCashFlowForecast } from "../../api/forecastAPI";
+import { fetchCashFlowForecast } from "../../api/forecastAPI.js";
 
 export default function ForecastChart({ propertyId = "A" }) {
   const [data, setData] = useState(null);

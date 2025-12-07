@@ -1,398 +1,6 @@
 [
   {
-    "timestamp": "2025-12-06T09:17:33.800067Z",
-    "agent": "maintenance_agent",
-    "event": "failure_check",
-    "chain": [
-      "maintenance_agent"
-    ],
-    "success": false,
-    "execution_time_ms": null,
-    "payload": {
-      "input": [
-        83,
-        67,
-        129
-      ],
-      "result": {
-        "status": "FAILURE_PREDICTED",
-        "alerts": [
-          "High Temperature \u2014 Cooling Required",
-          "Abnormal Vibration \u2014 Bearing Fault Possible",
-          "Pressure Spike \u2014 Leak Warning"
-        ]
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T09:19:42.506517Z",
-    "agent": "pricing_agent_chain",
-    "event": "pricing_decision",
-    "chain": [
-      "pricing_agent",
-      "forecasting_agent",
-      "esg_compliance_agent"
-    ],
-    "success": true,
-    "execution_time_ms": 3.01,
-    "payload": {
-      "agent_chain": [
-        "pricing_agent",
-        "forecasting_agent",
-        "esg_compliance_agent"
-      ],
-      "suggested_rent": 30097.32,
-      "forecast_next_6_months": {
-        "base_rent": 28000,
-        "new_rent": 30097.32,
-        "monthly_forecast": [
-          29048.66,
-          30136.59,
-          31265.27,
-          32436.23,
-          33651.03,
-          34911.34
-        ]
-      },
-      "esg_check_result": {
-        "status": "FAIL",
-        "details": "Exceeded by 250 kWh",
-        "allowed_limit_kwh": 1200,
-        "projected_penalty_$": 125.0
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T09:31:11.823142Z",
-    "agent": "lease_extraction_agent",
-    "event": "lease_parsing",
-    "chain": [
-      "lease_extraction_agent"
-    ],
-    "success": true,
-    "execution_time_ms": 1.32,
-    "payload": {
-      "monthly_rent": "32000",
-      "lease_start": "01/03/2024",
-      "lease_end": "01/03/2025",
-      "rent_escalation": "7%",
-      "penalty_fee": "750"
-    }
-  },
-  {
-    "timestamp": "2025-12-06T09:37:52.087310Z",
-    "agent": "lease_extraction_agent",
-    "event": "lease_parsing",
-    "chain": [
-      "lease_extraction_agent"
-    ],
-    "success": true,
-    "execution_time_ms": 2.0,
-    "payload": {
-      "monthly_rent": "32000",
-      "lease_start": "01/03/2024",
-      "lease_end": "01/03/2025",
-      "rent_escalation": "7%",
-      "penalty_fee": "750"
-    }
-  },
-  {
-    "timestamp": "2025-12-06T09:40:48.058901Z",
-    "agent": "pricing_agent_chain",
-    "event": "pricing_decision",
-    "chain": [
-      "pricing_agent",
-      "forecasting_agent",
-      "esg_compliance_agent"
-    ],
-    "success": true,
-    "execution_time_ms": 2.0,
-    "payload": {
-      "agent_chain": [
-        "pricing_agent",
-        "forecasting_agent",
-        "esg_compliance_agent"
-      ],
-      "suggested_rent": 30097.32,
-      "forecast_next_6_months": {
-        "base_rent": 28000,
-        "new_rent": 30097.32,
-        "monthly_forecast": [
-          29048.66,
-          30136.59,
-          31265.27,
-          32436.23,
-          33651.03,
-          34911.34
-        ]
-      },
-      "esg_check_result": {
-        "status": "FAIL",
-        "details": "Exceeded by 250 kWh",
-        "allowed_limit_kwh": 1200,
-        "projected_penalty_$": 125.0
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T09:41:43.126970Z",
-    "agent": "maintenance_agent",
-    "event": "failure_check",
-    "chain": [
-      "maintenance_agent"
-    ],
-    "success": false,
-    "execution_time_ms": null,
-    "payload": {
-      "input": [
-        83,
-        67,
-        129
-      ],
-      "result": {
-        "status": "FAILURE_PREDICTED",
-        "alerts": [
-          "High Temperature \u2014 Cooling Required",
-          "Abnormal Vibration \u2014 Bearing Fault Possible",
-          "Pressure Spike \u2014 Leak Warning"
-        ]
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T09:42:42.605024Z",
-    "agent": "maintenance_agent",
-    "event": "iot_simulation",
-    "chain": [
-      "maintenance_agent"
-    ],
-    "success": true,
-    "execution_time_ms": null,
-    "payload": {
-      "generated_samples": [
-        [
-          76.9,
-          61.8,
-          110.6
-        ],
-        [
-          87.3,
-          54.6,
-          128.3
-        ],
-        [
-          74.5,
-          73.2,
-          106.9
-        ],
-        [
-          78.2,
-          68.0,
-          108.9
-        ]
-      ],
-      "predictions": [
-        {
-          "status": "FAILURE_PREDICTED",
-          "alerts": [
-            "Abnormal Vibration \u2014 Bearing Fault Possible"
-          ]
-        },
-        {
-          "status": "FAILURE_PREDICTED",
-          "alerts": [
-            "High Temperature \u2014 Cooling Required",
-            "Pressure Spike \u2014 Leak Warning"
-          ]
-        },
-        {
-          "status": "FAILURE_PREDICTED",
-          "alerts": [
-            "Abnormal Vibration \u2014 Bearing Fault Possible"
-          ]
-        },
-        {
-          "status": "FAILURE_PREDICTED",
-          "alerts": [
-            "Abnormal Vibration \u2014 Bearing Fault Possible"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-06T09:57:12.493985Z",
-    "agent": "pricing_agent_chain",
-    "event": "pricing_decision",
-    "chain": [
-      "pricing_agent",
-      "forecasting_agent",
-      "esg_compliance_agent"
-    ],
-    "success": true,
-    "execution_time_ms": 2.24,
-    "payload": {
-      "agent_chain": [
-        "pricing_agent",
-        "forecasting_agent",
-        "esg_compliance_agent"
-      ],
-      "current_rent": 28000,
-      "base_suggested_rent": 30097.32,
-      "esg_adjusted_rent": 29194.4,
-      "final_recommended_rent": 28318.57,
-      "confidence": 0.52,
-      "risk_level": "medium",
-      "esg_status": "FAIL",
-      "esg_adjustment_applied": true,
-      "learning_note": "High ESG fail ratio (1.00), applying -3% safety adjustment.",
-      "forecast_next_6_months": {
-        "base_rent": 28000,
-        "new_rent": 30097.32,
-        "monthly_forecast": [
-          29048.66,
-          30136.59,
-          31265.27,
-          32436.23,
-          33651.03,
-          34911.34
-        ]
-      },
-      "esg_check_result": {
-        "status": "FAIL",
-        "details": "Exceeded by 250 kWh",
-        "allowed_limit_kwh": 1200,
-        "projected_penalty_$": 125.0
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T14:50:34.100438Z",
-    "agent": "portfolio_agent",
-    "event": "portfolio_recommendation",
-    "chain": [],
-    "success": true,
-    "execution_time_ms": null,
-    "payload": {
-      "risk_level": "medium",
-      "result": {
-        "strategy_risk_level": "medium",
-        "properties_evaluated": 3,
-        "top_recommendation": "property_A",
-        "allocation_plan": [
-          {
-            "id": "property_A",
-            "risk_score": 0.3,
-            "expected_return": 0.06,
-            "suggested_weight": 0.4025,
-            "investment_priority_score": 0.3
-          },
-          {
-            "id": "property_C",
-            "risk_score": 0.4,
-            "expected_return": 0.0585,
-            "suggested_weight": 0.2854,
-            "investment_priority_score": 0.2194
-          },
-          {
-            "id": "property_B",
-            "risk_score": 0.5,
-            "expected_return": 0.0563,
-            "suggested_weight": 0.2121,
-            "investment_priority_score": 0.1689
-          }
-        ],
-        "explanation": "Weights are based on inverse risk and expected return. Diversification penalty applied to avoid over-allocation to one asset."
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T14:50:58.336988Z",
-    "agent": "scenario_agent",
-    "event": "scenario_simulation",
-    "chain": [],
-    "success": true,
-    "execution_time_ms": null,
-    "payload": {
-      "status": "success",
-      "agent": "scenario_agent",
-      "agent_chain": [
-        "forecasting_agent",
-        "pricing_agent",
-        "scenario_agent"
-      ],
-      "property_id": "property_A",
-      "input_scenario": {
-        "rent_change_pct": 0.0,
-        "occupancy_change_pct": 0.0,
-        "expense_change_pct": 0.0,
-        "months_ahead": 6
-      },
-      "scenario_result": {
-        "property_id": "property_A",
-        "inputs_used": {
-          "rent_change_pct": 0.0,
-          "occupancy_change_pct": 0.0,
-          "expense_change_pct": 0.0,
-          "months_ahead": 6
-        },
-        "confidence_score": 1.0,
-        "impact_classification": "positive",
-        "sensitivity_rank": [
-          "rent_sensitivity",
-          "occupancy_sensitivity",
-          "expense_sensitivity"
-        ],
-        "final_month_NOI": 50000.0,
-        "projection_monthly": [
-          {
-            "month": 1,
-            "occupancy_rate": 0.85,
-            "projected_revenue": 170000.0,
-            "projected_expenses": 120000.0,
-            "projected_NOI": 50000.0
-          },
-          {
-            "month": 2,
-            "occupancy_rate": 0.85,
-            "projected_revenue": 170000.0,
-            "projected_expenses": 120000.0,
-            "projected_NOI": 50000.0
-          },
-          {
-            "month": 3,
-            "occupancy_rate": 0.85,
-            "projected_revenue": 170000.0,
-            "projected_expenses": 120000.0,
-            "projected_NOI": 50000.0
-          },
-          {
-            "month": 4,
-            "occupancy_rate": 0.85,
-            "projected_revenue": 170000.0,
-            "projected_expenses": 120000.0,
-            "projected_NOI": 50000.0
-          },
-          {
-            "month": 5,
-            "occupancy_rate": 0.85,
-            "projected_revenue": 170000.0,
-            "projected_expenses": 120000.0,
-            "projected_NOI": 50000.0
-          },
-          {
-            "month": 6,
-            "occupancy_rate": 0.85,
-            "projected_revenue": 170000.0,
-            "projected_expenses": 120000.0,
-            "projected_NOI": 50000.0
-          }
-        ]
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T14:53:36.243848Z",
+    "timestamp": "2025-12-07T01:27:03.297683Z",
     "agent": "scenario_agent",
     "event": "scenario_simulation",
     "chain": [],
@@ -408,120 +16,71 @@
         "scenario_agent"
       ],
       "input_scenario": {
-        "rent_change_pct": 5.0,
-        "occupancy_change_pct": -3.0,
-        "expense_change_pct": 1.5,
+        "rent_change_pct": 6.0,
+        "occupancy_change_pct": 2.0,
+        "expense_change_pct": -3.0,
         "months_ahead": 6
       },
       "scenario_result": {
         "property_id": "property_A",
         "inputs_used": {
-          "rent_change_pct": 5.0,
-          "occupancy_change_pct": -3.0,
-          "expense_change_pct": 1.5,
+          "rent_change_pct": 6.0,
+          "occupancy_change_pct": 2.0,
+          "expense_change_pct": -3.0,
           "months_ahead": 6
         },
-        "confidence_score": 0.91,
+        "confidence_score": 0.89,
         "impact_classification": "positive",
         "sensitivity_rank": [
           "rent_sensitivity",
-          "occupancy_sensitivity",
-          "expense_sensitivity"
+          "expense_sensitivity",
+          "occupancy_sensitivity"
         ],
-        "final_month_NOI": 58551.37,
+        "final_month_NOI": 171615.45,
         "projection_monthly": [
           {
             "month": 1,
-            "occupancy_rate": 0.825,
-            "projected_revenue": 173145.0,
-            "projected_expenses": 121800.0,
-            "projected_NOI": 51345.0
+            "occupancy_rate": 0.867,
+            "projected_revenue": 183804.0,
+            "projected_expenses": 116400.0,
+            "projected_NOI": 67404.0
           },
           {
             "month": 2,
-            "occupancy_rate": 0.8,
-            "projected_revenue": 176348.18,
-            "projected_expenses": 123627.0,
-            "projected_NOI": 52721.18
+            "occupancy_rate": 0.884,
+            "projected_revenue": 198728.88,
+            "projected_expenses": 112908.0,
+            "projected_NOI": 85820.88
           },
           {
             "month": 3,
-            "occupancy_rate": 0.776,
-            "projected_revenue": 179610.62,
-            "projected_expenses": 125481.4,
-            "projected_NOI": 54129.22
+            "occupancy_rate": 0.902,
+            "projected_revenue": 214865.67,
+            "projected_expenses": 109520.76,
+            "projected_NOI": 105344.91
           },
           {
             "month": 4,
-            "occupancy_rate": 0.752,
-            "projected_revenue": 182933.42,
-            "projected_expenses": 127363.63,
-            "projected_NOI": 55569.79
+            "occupancy_rate": 0.92,
+            "projected_revenue": 232312.76,
+            "projected_expenses": 106235.14,
+            "projected_NOI": 126077.63
           },
           {
             "month": 5,
-            "occupancy_rate": 0.73,
-            "projected_revenue": 186317.69,
-            "projected_expenses": 129274.08,
-            "projected_NOI": 57043.61
+            "occupancy_rate": 0.938,
+            "projected_revenue": 251176.56,
+            "projected_expenses": 103048.08,
+            "projected_NOI": 148128.48
           },
           {
             "month": 6,
-            "occupancy_rate": 0.708,
-            "projected_revenue": 189764.57,
-            "projected_expenses": 131213.19,
-            "projected_NOI": 58551.37
+            "occupancy_rate": 0.957,
+            "projected_revenue": 271572.1,
+            "projected_expenses": 99956.64,
+            "projected_NOI": 171615.45
           }
         ]
-      }
-    }
-  },
-  {
-    "timestamp": "2025-12-06T14:54:20.267414Z",
-    "agent": "portfolio_agent",
-    "event": "portfolio_recommendation",
-    "chain": [],
-    "success": true,
-    "execution_time_ms": null,
-    "payload": {
-      "risk_level": "low",
-      "properties": [
-        {
-          "id": "property_A",
-          "current_value": 1000000,
-          "noi": 60000,
-          "risk_score": 0.3,
-          "expected_return": 0.06
-        },
-        {
-          "id": "property_B",
-          "current_value": 800000,
-          "noi": 45000,
-          "risk_score": 0.5,
-          "expected_return": 0.0563
-        }
-      ],
-      "result": {
-        "strategy_risk_level": "low",
-        "properties_evaluated": 2,
-        "top_recommendation": "property_A",
-        "allocation_plan": [
-          {
-            "id": "property_A",
-            "risk_score": 0.3,
-            "expected_return": 0.06,
-            "suggested_weight": 0.5898,
-            "investment_priority_score": 0.12
-          },
-          {
-            "id": "property_B",
-            "risk_score": 0.5,
-            "expected_return": 0.0563,
-            "suggested_weight": 0.3102,
-            "investment_priority_score": 0.0676
-          }
-        ],
-        "explanation": "Weights are based on inverse risk and expected return. Diversification penalty applied to avoid over-allocation to one asset."
       }
     }
   }

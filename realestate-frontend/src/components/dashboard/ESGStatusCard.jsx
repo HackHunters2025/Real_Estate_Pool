@@ -2,38 +2,57 @@ import { useEffect, useState } from "react";
 import { Leaf, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
 import { fetchESGStatus } from "../../api/esgAPI";
 
-export default function ESGStatusCard({ propertyId = "A" }) {
+export default function ESGStatusCard({ propertyId = "Green Valley Tower" }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetchESGStatus(propertyId).then((res) => {
-  //     setData(res);
-  //     setLoading(false);
-  //   });
-  // }, [propertyId]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-  setLoading(true);
+    setLoading(true);
+    setError(null);
 
-  fetchESGStatus(propertyId)
-    .then((res) => {
-      console.log("✅ ESG DATA RECEIVED:", res);
-      setData(res);
-    })
-    .catch((err) => {
-      console.error("❌ ESG UI error:", err);
-    })
-    .finally(() => setLoading(false));
-}, [propertyId]);
+    fetchESGStatus(propertyId)
+      .then((res) => {
+        console.log("✅ ESG RAW BACKEND DATA:", res);
 
+        /**
+         * NORMALIZE BACKEND → UI FORMAT
+         */
+        const normalized = {
+          status: res.compliance?.status || "PASS",
+          energyUsage: Math.min(
+            Math.round((res.energy_usage ?? 720) / 10),
+            100
+          ),
+          message:
+            res.compliance?.details ||
+            "Energy usage within allowed ESG thresholds",
+          allowedLimit:
+            res.compliance?.allowed_limit_kwh || 1200,
+        };
+
+        setData(normalized);
+      })
+      .catch((err) => {
+        console.error("❌ ESG UI error:", err);
+        setError("Failed to check ESG compliance");
+      })
+      .finally(() => setLoading(false));
+  }, [propertyId]);
 
   if (loading) {
     return (
       <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6 h-full flex flex-col items-center justify-center text-slate-400 gap-2">
         <Loader2 className="animate-spin" size={20} />
         <span className="text-xs">Checking compliance...</span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-white rounded-2xl border border-rose-100 shadow-sm p-6 text-rose-600 text-sm">
+        {error}
       </div>
     );
   }
@@ -45,10 +64,19 @@ export default function ESGStatusCard({ propertyId = "A" }) {
       <div className="flex justify-between items-start mb-4">
         <div>
           <h2 className="text-sm font-bold text-slate-900">ESG Compliance</h2>
-          <p className="text-xs text-slate-500 mt-0.5">Sustainability Monitor</p>
+          <p className="text-xs text-slate-500 mt-0.5">
+            AI Sustainability Agent
+          </p>
         </div>
-        <div className={`p-2 rounded-lg ${isPass ? 'bg-emerald-50' : 'bg-rose-50'}`}>
-          <Leaf size={18} className={isPass ? 'text-emerald-600' : 'text-rose-600'} />
+        <div
+          className={`p-2 rounded-lg ${
+            isPass ? "bg-emerald-50" : "bg-rose-50"
+          }`}
+        >
+          <Leaf
+            size={18}
+            className={isPass ? "text-emerald-600" : "text-rose-600"}
+          />
         </div>
       </div>
 
@@ -56,26 +84,34 @@ export default function ESGStatusCard({ propertyId = "A" }) {
         <div className="flex items-center gap-3 mb-4">
           <span
             className={`flex items-center gap-1.5 pl-2 pr-3 py-1 rounded-full text-xs font-bold border ${
-              isPass 
-                ? "bg-emerald-50 border-emerald-100 text-emerald-700" 
+              isPass
+                ? "bg-emerald-50 border-emerald-100 text-emerald-700"
                 : "bg-rose-50 border-rose-100 text-rose-700"
             }`}
           >
-            {isPass ? <CheckCircle2 size={12} /> : <AlertTriangle size={12} />}
+            {isPass ? (
+              <CheckCircle2 size={12} />
+            ) : (
+              <AlertTriangle size={12} />
+            )}
             {data.status}
           </span>
+
           <span className="text-sm font-medium text-slate-600">
-             {data.energyUsage}% <span className="text-slate-400 font-normal">of cap</span>
+            {data.energyUsage}%{" "}
+            <span className="text-slate-400 font-normal">
+              of allowed limit
+            </span>
           </span>
         </div>
 
-        {/* Progress Bar Visual */}
+        {/* Progress Bar */}
         <div className="w-full bg-slate-100 h-2 rounded-full mb-3 overflow-hidden">
-          <div 
+          <div
             className={`h-full rounded-full transition-all duration-1000 ${
-              data.energyUsage > 100 ? 'bg-rose-500' : 'bg-emerald-500'
+              data.energyUsage > 90 ? "bg-rose-500" : "bg-emerald-500"
             }`}
-            style={{ width: `${Math.min(data.energyUsage, 100)}%` }}
+            style={{ width: `${data.energyUsage}%` }}
           />
         </div>
 

@@ -1,32 +1,31 @@
 import BASE_URL from "./base";
 
-const mockLease = {
-  tenant: "Acme Corp",
-  rent: 12000,
-  startDate: "2023-01-01",
-  endDate: "2026-12-31",
-  alerts: ["Renewal due in 9 months"],
-};
+export async function uploadAndExtractLease(file) {
+  const formData = new FormData();
+  formData.append("file", file);
 
-export async function fetchLeaseDetails() {
-  try {
-    const res = await fetch(`${BASE_URL}/lease/extract`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: "mock lease text" }),
-    });
+  const res = await fetch(`${BASE_URL}/lease/extract`, {
+    method: "POST",
+    body: formData, // ✅ multipart/form-data automatically
+  });
 
-    if (!res.ok) throw new Error();
-
-    const data = await res.json();
-    return {
-      tenant: data.tenant_name || "Unknown",
-      rent: data.rent || 12000,
-      startDate: data.start_date,
-      endDate: data.end_date,
-      alerts: data.flags || [],
-    };
-  } catch {
-    return mockLease;
+  if (!res.ok) {
+    throw new Error("Lease extraction failed");
   }
+
+  const data = await res.json();
+
+  console.log("✅ RAW LEASE BACKEND RESPONSE:", data);
+
+  const fields = data.extracted_fields || {};
+
+  return {
+    monthlyRent: Number(fields.monthly_rent || 0),
+    leaseStart: fields.lease_start || "-",
+    leaseEnd: fields.lease_end || "-",
+    rentEscalation: fields.rent_escalation || "-",
+    penaltyFee: Number(fields.penalty_fee || 0),
+    executionTime: data.execution_ms,
+    filename: data.filename,
+  };
 }

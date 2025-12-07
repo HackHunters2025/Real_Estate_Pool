@@ -158,7 +158,7 @@ export default function Home() {
                 Direct from Developers.
               </h3>
               <p className="text-slate-500 text-lg leading-relaxed mb-8 max-w-lg">
-                Zero brokerage. Zero hassle. We connect you directly with the sales teams of India's top builders, ensuring transparency and the best market rates.
+                We connect you directly with the sales teams of India's top builders, ensuring transparency and the best market rates.
               </p>
               
               <div className="hidden lg:block text-slate-400 text-sm font-medium">
