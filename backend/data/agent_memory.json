@@ -1,86 +1,155 @@
 [
   {
-    "timestamp": "2025-12-07T01:27:03.297683Z",
-    "agent": "scenario_agent",
-    "event": "scenario_simulation",
+    "timestamp": "2025-12-07T01:35:18.536370Z",
+    "agent": "portfolio_agent",
+    "event": "portfolio_recommendation",
     "chain": [],
     "success": true,
     "execution_time_ms": null,
     "payload": {
-      "status": "success",
-      "agent": "scenario_agent",
-      "property_id": "property_A",
-      "agent_chain": [
-        "forecasting_agent",
-        "portfolio_agent",
-        "scenario_agent"
-      ],
-      "input_scenario": {
-        "rent_change_pct": 6.0,
-        "occupancy_change_pct": 2.0,
-        "expense_change_pct": -3.0,
-        "months_ahead": 6
-      },
-      "scenario_result": {
-        "property_id": "property_A",
-        "inputs_used": {
-          "rent_change_pct": 6.0,
-          "occupancy_change_pct": 2.0,
-          "expense_change_pct": -3.0,
-          "months_ahead": 6
+      "risk_level": "low",
+      "properties": [
+        {
+          "id": "property_A",
+          "current_value": 1000000,
+          "noi": 60000,
+          "risk_score": 0.3,
+          "expected_return": 0.06
         },
-        "confidence_score": 0.89,
-        "impact_classification": "positive",
-        "sensitivity_rank": [
-          "rent_sensitivity",
-          "expense_sensitivity",
-          "occupancy_sensitivity"
-        ],
-        "final_month_NOI": 171615.45,
-        "projection_monthly": [
+        {
+          "id": "property_B",
+          "current_value": 800000,
+          "noi": 45000,
+          "risk_score": 0.5,
+          "expected_return": 0.0563
+        }
+      ],
+      "result": {
+        "strategy_risk_level": "low",
+        "properties_evaluated": 2,
+        "top_recommendation": "property_A",
+        "allocation_plan": [
           {
-            "month": 1,
-            "occupancy_rate": 0.867,
-            "projected_revenue": 183804.0,
-            "projected_expenses": 116400.0,
-            "projected_NOI": 67404.0
+            "id": "property_A",
+            "risk_score": 0.3,
+            "expected_return": 0.06,
+            "suggested_weight": 0.5898,
+            "investment_priority_score": 0.12
           },
           {
-            "month": 2,
-            "occupancy_rate": 0.884,
-            "projected_revenue": 198728.88,
-            "projected_expenses": 112908.0,
-            "projected_NOI": 85820.88
-          },
-          {
-            "month": 3,
-            "occupancy_rate": 0.902,
-            "projected_revenue": 214865.67,
-            "projected_expenses": 109520.76,
-            "projected_NOI": 105344.91
-          },
-          {
-            "month": 4,
-            "occupancy_rate": 0.92,
-            "projected_revenue": 232312.76,
-            "projected_expenses": 106235.14,
-            "projected_NOI": 126077.63
-          },
-          {
-            "month": 5,
-            "occupancy_rate": 0.938,
-            "projected_revenue": 251176.56,
-            "projected_expenses": 103048.08,
-            "projected_NOI": 148128.48
-          },
-          {
-            "month": 6,
-            "occupancy_rate": 0.957,
-            "projected_revenue": 271572.1,
-            "projected_expenses": 99956.64,
-            "projected_NOI": 171615.45
+            "id": "property_B",
+            "risk_score": 0.5,
+            "expected_return": 0.0563,
+            "suggested_weight": 0.3102,
+            "investment_priority_score": 0.0676
           }
-        ]
+        ],
+        "explanation": "Weights are based on inverse risk and expected return. Diversification penalty applied to avoid over-allocation to one asset."
+      }
+    }
+  },
+  {
+    "timestamp": "2025-12-07T02:05:46.710952Z",
+    "agent": "portfolio_agent",
+    "event": "portfolio_recommendation",
+    "chain": [],
+    "success": true,
+    "execution_time_ms": null,
+    "payload": {
+      "risk_level": "low",
+      "properties": [
+        {
+          "id": "property_A",
+          "current_value": 1000000,
+          "noi": 60000,
+          "risk_score": 0.3,
+          "expected_return": 0.06
+        },
+        {
+          "id": "property_B",
+          "current_value": 800000,
+          "noi": 45000,
+          "risk_score": 0.5,
+          "expected_return": 0.0563
+        }
+      ],
+      "result": {
+        "strategy_risk_level": "low",
+        "properties_evaluated": 2,
+        "top_recommendation": "property_A",
+        "allocation_plan": [
+          {
+            "id": "property_A",
+            "risk_score": 0.3,
+            "expected_return": 0.06,
+            "suggested_weight": 0.5898,
+            "investment_priority_score": 0.12
+          },
+          {
+            "id": "property_B",
+            "risk_score": 0.5,
+            "expected_return": 0.0563,
+            "suggested_weight": 0.3102,
+            "investment_priority_score": 0.0676
+          }
+        ],
+        "explanation": "Weights are based on inverse risk and expected return. Diversification penalty applied to avoid over-allocation to one asset."
+      }
+    }
+  },
+  {
+    "timestamp": "2025-12-07T02:05:46.746064Z",
+    "agent": "maintenance_agent",
+    "event": "failure_check",
+    "chain": [
+      "maintenance_agent"
+    ],
+    "success": true,
+    "execution_time_ms": null,
+    "payload": {
+      "input": [
+        26,
+        0.8,
+        30
+      ],
+      "result": {
+        "status": "NORMAL",
+        "alerts": []
+      }
+    }
+  }
+]
+          "expected_return": 0.06
+        },
+        {
+          "id": "property_B",
+          "current_value": 800000,
+          "noi": 45000,
+          "risk_score": 0.5,
+          "expected_return": 0.0563
+        }
+      ],
+      "result": {
+        "strategy_risk_level": "low",
+        "properties_evaluated": 2,
+        "top_recommendation": "property_A",
+        "allocation_plan": [
+          {
+            "id": "property_A",
+            "risk_score": 0.3,
+            "expected_return": 0.06,
+            "suggested_weight": 0.5898,
+            "investment_priority_score": 0.12
+          },
+          {
+            "id": "property_B",
+            "risk_score": 0.5,
+            "expected_return": 0.0563,
+            "suggested_weight": 0.3102,
+            "investment_priority_score": 0.0676
+          }
+        ],
+        "explanation": "Weights are based on inverse risk and expected return. Diversification penalty applied to avoid over-allocation to one asset."
       }
     }
   }

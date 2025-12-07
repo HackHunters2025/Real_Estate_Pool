@@ -9,7 +9,7 @@ const properties = [
 export default function PropertySelector({ value, onChange }) {
   return (
     <div className="relative group">
-      <div className="absolute top-1/2 -translate-y-1/2 pointer-events-none">
+      <div className="absolute top-1/2 -translate-y-1/2 pointer-events-none pl-5">
         <Building size={14} className="text-slate-400 group-hover:text-indigo-500 transition-colors" />
       </div>
       
