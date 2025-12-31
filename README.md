@@ -357,13 +357,13 @@ Swagger UI: `http://127.0.0.1:8000/docs`
 * Authentication/authorization is not yet integrated (hackathon scope).
 * Lease extraction uses simplified assumptions vs full LLM/NLP pipeline.
 
----
+----
 
 ## 📜 License
 
 MIT License (can be adapted for enterprise licensing if needed).
 
----
+----
 
 ## 🤝 Contributors / Team
 
